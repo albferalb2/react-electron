@@ -1,5 +1,7 @@
 README - Repositorio de Recordatorio de Conocimientos
+
 📚 Propósito del Repositorio
+
 Este repositorio sirve como bitácora de conocimientos y referencia práctica de todo lo aprendido a lo largo del curso. Su objetivo principal es:
 
 Consolidar los conceptos y técnicas adquiridas
@@ -11,6 +13,7 @@ Servir como referencia rápida para futuros proyectos
 Demostrar el progreso y las habilidades desarrolladas
 
 🛠️ Contenido Destacado
+
 Ejemplos de integración entre Electron + React + Tailwind CSS
 
 Implementaciones de componentes reutilizables
