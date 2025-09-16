@@ -20,9 +20,18 @@
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.1",
     "@electron-toolkit/utils": "^3.0.0",
+    "@reduxjs/toolkit": "^2.9.0",
+    "axios": "^1.12.2",
+    "body-parser": "^2.2.0",
     "boostrap": "^2.0.0",
     "bootstrap": "^5.3.8",
-    "react-bootstrap": "^2.10.10"
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mysql2": "^3.14.5",
+    "react-bootstrap": "^2.10.10",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.9.1",
+    "uuid": "^13.0.0"
   },
   "devDependencies": {
     "@electron-toolkit/eslint-config": "^1.0.2",

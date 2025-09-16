@@ -1,93 +1,36 @@
-import { useState } from 'react';
-import { Container, Row, Col, Card, Badge } from 'react-bootstrap';
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { Container, Row, Col } from 'react-bootstrap';
+import FilmList from './components/FilmList';
+import AddFilm from './components/FilmAdd';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  const [people] = useState([
-    { name: 'Ana García', role: 'Desarrolladora Frontend', department: 'Tecnología' },
-    { name: 'Carlos Rodríguez', role: 'Diseñador UI/UX', department: 'Diseño' },
-    { name: 'María López', role: 'Project Manager', department: 'Gestión' },
-    { name: 'Juan Martínez', role: 'QA Engineer', department: 'Calidad' },
-    { name: 'Laura Fernández', role: 'Backend Developer', department: 'Tecnología' }
-  ]);
-
-  const getDepartmentVariant = (department) => {
-    const variants = {
-      'Tecnología': 'primary',
-      'Diseño': 'success',
-      'Gestión': 'warning',
-      'Calidad': 'info'
-    };
-    return variants[department] || 'secondary';
-  };
-
-  const getIcon = (role) => {
-    const iconMap = {
-      'Desarrolladora Frontend': '💻',
-      'Diseñador UI/UX': '🎨',
-      'Project Manager': '📊',
-      'QA Engineer': '🧪',
-      'Backend Developer': '⚙️'
-    };
-    return iconMap[role] || '👤';
-  };
-
   return (
-    <Container fluid className="bg-light py-5 min-vh-100">
+    <Container fluid className="bg-light min-vh-100 py-5">
       <Container>
         {/* Header */}
         <Row className="text-center mb-5">
           <Col>
             <h1 className="display-4 text-primary fw-bold mb-3">
-              🚀 Nuestro Equipo
+              🎬 Catálogo de Películas
             </h1>
             <p className="lead text-muted">
-              Conoce a los talentosos miembros de nuestro equipo
+              Gestiona tus películas favoritas en un solo lugar
             </p>
           </Col>
         </Row>
 
-        {/* Stats Card */}
-        <Row className="mb-5">
+        {/* Rutas */}
+        <Row>
           <Col>
-            <Card className="border-0 shadow-sm">
-              <Card.Body className="text-center py-4">
-                <h2 className="h3 mb-0">
-                  Miembros del Equipo{' '}
-                  <Badge bg="primary" pill>{people.length}</Badge>
-                </h2>
-              </Card.Body>
-            </Card>
+            <Routes>
+              <Route path="/films" element={<FilmList />} />
+              <Route path="/add-film" element={<AddFilm />} />
+              <Route path="*" element={<Navigate to="/films" />} />
+            </Routes>
           </Col>
         </Row>
-
-        {/* Team Members */}
-        <Row>
-          {people.map((person, index) => (
-            <Col key={index} md={6} lg={4} className="mb-4">
-              <Card className="h-100 shadow-sm border-0">
-                <Card.Body className="text-center">
-                  <div 
-                    className="rounded-circle d-inline-flex align-items-center justify-content-center mb-3 bg-primary text-white"
-                    style={{width: '80px', height: '80px', fontSize: '2rem'}}
-                  >
-                    {getIcon(person.role)}
-                  </div>
-                  <Card.Title className="h5">{person.name}</Card.Title>
-                  <Card.Text className="text-muted">{person.role}</Card.Text>
-                  <Badge bg={getDepartmentVariant(person.department)} className="mb-2">
-                    {person.department}
-                  </Badge>
-                </Card.Body>
-                <Card.Footer className="bg-transparent border-0 text-muted">
-                  <small>Miembro #{index + 1}</small>
-                </Card.Footer>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-
-        
       </Container>
     </Container>
   );
